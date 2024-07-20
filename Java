@@ -1,0 +1,103 @@
+// ReprodutorMusical.java
+public interface ReprodutorMusical {
+    void tocarMusica(String faixa);
+    void pausar();
+    void parar();
+}
+
+// AparelhoTelefonico.java
+public interface AparelhoTelefonico {
+    void fazerChamada(String numero);
+    void receberChamada(String numero);
+    void enviarMensagem(String numero, String mensagem);
+}
+
+// NavegadorInternet.java
+public interface NavegadorInternet {
+    void abrirPagina(String url);
+    void fecharPagina();
+    void navegarPara(String url);
+}
+
+// iPhone.java
+public class iPhone implements ReprodutorMusical, AparelhoTelefonico, NavegadorInternet {
+    private String modelo;
+
+    // Construtor
+    public iPhone(String modelo) {
+        this.modelo = modelo;
+    }
+
+    // Métodos da interface ReprodutorMusical
+    @Override
+    public void tocarMusica(String faixa) {
+        System.out.println("Tocando a música: " + faixa);
+    }
+
+    @Override
+    public void pausar() {
+        System.out.println("Música pausada.");
+    }
+
+    @Override
+    public void parar() {
+        System.out.println("Música parada.");
+    }
+
+    // Métodos da interface AparelhoTelefonico
+    @Override
+    public void fazerChamada(String numero) {
+        System.out.println("Fazendo chamada para: " + numero);
+    }
+
+    @Override
+    public void receberChamada(String numero) {
+        System.out.println("Recebendo chamada de: " + numero);
+    }
+
+    @Override
+    public void enviarMensagem(String numero, String mensagem) {
+        System.out.println("Enviando mensagem para " + numero + ": " + mensagem);
+    }
+
+    // Métodos da interface NavegadorInternet
+    @Override
+    public void abrirPagina(String url) {
+        System.out.println("Abrindo página: " + url);
+    }
+
+    @Override
+    public void fecharPagina() {
+        System.out.println("Página fechada.");
+    }
+
+    @Override
+    public void navegarPara(String url) {
+        System.out.println("Navegando para: " + url);
+    }
+
+    // Método para exibir informações do modelo
+    public void exibirModelo() {
+        System.out.println("Modelo do iPhone: " + modelo);
+    }
+
+    // Método principal para teste
+    public static void main(String[] args) {
+        iPhone meuIphone = new iPhone("iPhone X");
+
+        meuIphone.exibirModelo();
+
+        // Testar funcionalidades
+        meuIphone.tocarMusica("Shape of You");
+        meuIphone.pausar();
+        meuIphone.parar();
+
+        meuIphone.fazerChamada("123456789");
+        meuIphone.receberChamada("987654321");
+        meuIphone.enviarMensagem("123456789", "Olá!");
+
+        meuIphone.abrirPagina("www.google.com");
+        meuIphone.navegarPara("www.github.com");
+        meuIphone.fecharPagina();
+    }
+}
